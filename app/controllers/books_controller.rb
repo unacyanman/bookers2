@@ -8,4 +8,15 @@ class BooksController < ApplicationController
     @book = Book.all
   end
   
+  def show
+  end
+  
+  def edit
+  end
+  
+  private
+  def book_params
+    params.require().permit()
+  end 
+  
 end
