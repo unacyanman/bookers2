@@ -58,22 +58,10 @@
         </div>    
       </nav>      
     </header>
-    
-    <main class="mb-auto">
-        
-      <!--<div class=contents>-->
-      <!--  <% if user_signed_in? %>-->
-      <!--    <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>-->
-      <!--  <% else %>-->
-      <!--    <li><%= link_to "Log in", new_user_session_path %></li>-->
-      <!--    <li><%= link_to "Sign up", new_user_registration_path %></li>-->
-      <!--  <% end %>-->
-      <!--</div>-->
-        <%= yield %>
       
-    </main>
+      <%= yield %>
       
-    <footer>
+    <footer class="mx-auto">
       <p>CopyRight Infratop.inc</p>
     </footer>
     

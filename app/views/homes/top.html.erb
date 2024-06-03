@@ -1,10 +1,19 @@
 <html>
-  <head>
+  <main>
     <div class="text-center">
       <h1>welcome to Bookers !!</h1>
       <h2>In Bookers,</h2>
       <a>you can share and exchange your opinions , inpressions , and emotions<br>
       about various books!</a>
     </div>
-  </head>
-<html>
+    
+    <div class=contents>
+      <% if user_signed_in? %>
+        <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+      <% else %>
+        <li><%= link_to "Log in", new_user_session_path %></li>
+        <li><%= link_to "Sign up", new_user_registration_path %></li>
+      <% end %>
+    </div>
+  </main>
+</html>
