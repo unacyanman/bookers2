@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get 'books/new'
   post 'books' => 'books#create'
   
-  get '/about', to: 'users#about'
+  get '/about', to: 'homes#about', as: 'about'
   get '/books', to: 'books#index', as: 'books_index'
   get '/top', to: 'homes#top', as: 'top'
   devise_for :users

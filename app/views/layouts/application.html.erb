@@ -10,7 +10,7 @@
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
+  
   <body class="d-flex flex-column vh-100">
     <header class="shadow-sm text-white bg-dark">
       <nav class="navbar navbar-expand-lg navbar-light">
@@ -58,19 +58,19 @@
         </div>    
       </nav>      
     </header>
+    
     <main class="mb-auto">
-    
         
-    <div class=contents>
-      <% if user_signed_in? %>
-        <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
-      <% else %>
-        <li><%= link_to "Log in", new_user_session_path %></li>
-        <li><%= link_to "Sign up", new_user_registration_path %></li>
-      <% end %>
-    </div>
-      <%= yield %>
-    
+      <!--<div class=contents>-->
+      <!--  <% if user_signed_in? %>-->
+      <!--    <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>-->
+      <!--  <% else %>-->
+      <!--    <li><%= link_to "Log in", new_user_session_path %></li>-->
+      <!--    <li><%= link_to "Sign up", new_user_registration_path %></li>-->
+      <!--  <% end %>-->
+      <!--</div>-->
+        <%= yield %>
+      
     </main>
       
     <footer>
