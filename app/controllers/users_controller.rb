@@ -21,7 +21,8 @@ class UsersController < ApplicationController
   end
   
   def index
-    @user = User.new
+    @users = User.all
+    @user = current_user
   end
   
   def edit

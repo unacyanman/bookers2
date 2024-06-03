@@ -1,12 +1,12 @@
-<%= form_with model: @user do |f| %>
+
   <h4>User info</h4>
   <h3><%= @user.name %></h3>
-  <% if user.profile_image.attached? %>
+  <% if @user.profile_image.attached? %>
     <%= image_tag @user.get_profile_image(100,100) %>
   <% else %>
     <%= image_tag 'no_image', size: "200x200" %>
   <% end %>  
-<% end %>
+
 
 
 <%= form_with model:Book.new do |f| %>

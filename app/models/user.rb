@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   
   require 'user'
-  has_one_attached :image
+  has_one_attached :profile_image
   
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
