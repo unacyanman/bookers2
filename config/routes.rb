@@ -13,7 +13,8 @@ Rails.application.routes.draw do
   
   get 'users/show'
   get 'users/edit'
-  get '/users', to: 'users#index', as: 'users_index'
+  get 'users/index'
+  post 'signin', to: 'users#index'
   
   resources :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

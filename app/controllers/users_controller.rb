@@ -23,6 +23,7 @@ class UsersController < ApplicationController
   def index
     @users = User.all
     @user = current_user
+    @user_name = current_user.name
   end
   
   def edit
