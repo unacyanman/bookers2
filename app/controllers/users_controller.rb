@@ -24,6 +24,7 @@ class UsersController < ApplicationController
     @users = User.all
     @user = current_user
     @user_name = current_user.name
+    @books = Book.all
   end
   
   def edit

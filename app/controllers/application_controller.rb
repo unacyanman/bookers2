@@ -9,6 +9,14 @@ class ApplicationController < ActionController::Base
     homes_path_url
   end
 
+  def get_profile_image(width, height)
+    if @user.profile_image.attached?
+      image_tag @user.profile_image.variant(resize: "#{width}x#{height}>")
+    else
+      image_tag 'no_image', size: "#{width}x#{height}"
+    end
+  end
+
   protected
   
   def logged_in?

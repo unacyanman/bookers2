@@ -1,22 +1,50 @@
-<h4>User info</h4>
-<% if @user.profile_image.attached? %>
-  <%= image_tag @user.get_profile_image(100,100) %>
-<% else %>
-  <%= image_tag 'no_image', size: "100x100" %>
-<% end %>  
-
-<table class=user_table>
-  <tr><td>name</td><td><%= @user_name %></td></tr>
-  <tr><td>introduction</td><td>aa</td></tr>
-</table></br>
-<%= link_to 'Edit', {controller: 'users', action: 'edit', id: @user.id}, class: 'btn-brock btn-outline' %>
-
-<h4>New book</h4>
-<%= form_with model:Book.new do |f| %>
-  <h4>Title</h4>
-  <%= f.text_field :title %>
-	
-  <h4>Opinion</h4>
-  <%= f.text_area :body %></br>
-	<%= f.submit 'Create Book' %>
-<% end %>
+<div class="container">
+  <div class="row">
+    
+    <div class="col-md-4">
+      <h4>User info</h4>
+      <% if @user.profile_image.attached? %>
+        <%= image_tag @user.get_profile_image(100,100) %>
+      <% else %>
+        <%= image_tag 'no_image', size: "100x100" %>
+      <% end %>  
+      
+      <table class=user_table>
+        <tr><th>name</th><th><%= @user_name %></th></tr>
+        <tr><td>introduction</td><td>aa</td></tr>
+      </table></br>
+      <%= link_to 'Edit', {controller: 'users', action: 'edit', id: @user.id}, class: 'btn-brock btn-outline' %>
+      
+      <h4>New book</h4>
+      <%= form_with model:Book.new do |f| %>
+        <h4>Title</h4>
+        <%= f.text_field :title %>
+      	
+        <h4>Opinion</h4>
+        <%= f.text_area :body %></br>
+      	<%= f.submit 'Create Book' %>
+      <% end %>
+    </div>
+    
+    <div class="col-md-8">
+      <h4>Books</h4>
+        <table class=books_table>
+          <tr>
+            <th></th>
+            <th>Title</th>
+            <th>Option</th>
+          </tr>
+        </table>
+        <tbody>
+          <% @books.each do |book| %>
+            <tr>
+              <td><%= image_tag @user.get_profile_image(80,80) %></td>
+              <td><%= book.title %></td>
+              <td><%= book.opinion %></td>
+            </tr>
+          <% end %>
+        </tbody>
+    </div> 
+     
+  </div>
+</div>
