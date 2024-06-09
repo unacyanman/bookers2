@@ -1,3 +1,4 @@
+<h4>books/index</h4>
 <div class="container">
   <div class="row">
     
@@ -28,6 +29,12 @@
     
     <div class="col-md-8">
       <h4>Books</h4>
+      <% @books.each do |book| %>
+
+        <p>タイトル</p>
+        <span><%= @book.title %></span>
+        <span><%= @book.body %></span>
+      <% end %>
     </div>
     
   </div>

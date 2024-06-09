@@ -5,9 +5,18 @@ class BooksController < ApplicationController
     @book = Book.new
   end
   
+  def create
+    @book = Book.new(book_params)
+    if @book.save
+      redirect_to books_url, notice: 'Book was successfully created.'
+    else
+      render :new
+    end
+  end
+  
   def index
-    @book = Book.all
-    @user = User.first
+    @books = Book.all
+    @user = current_user
   end
   
   def show
@@ -17,17 +26,6 @@ class BooksController < ApplicationController
   
   def edit
   end
-  
-  def create
-    @book = Book.new(book_params)
-    if @book.save
-      redirect_to '/books/show', notice: 'Book was successfully created.'
-    else
-      render :new
-    end
-  end
-  
-  private
   
   def book_params
     params.require(:book).permit(:title, :body)
