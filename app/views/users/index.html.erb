@@ -17,7 +17,7 @@
       <%= link_to 'Edit', {controller: 'users', action: 'edit', id: @user.id}, class: 'btn-brock btn-outline' %>
       
       <h4>New book</h4>
-      <%= form_with model: Book.new, url: {controller: 'books', action: 'create'} do |f| %>
+      <%= form_with model: @book, url: '/books', method: :post do |f| %>
         <h4>Title</h4>
         <%= f.text_field :title %>
       	
@@ -30,7 +30,6 @@
     <div class="col-md-8">
       <h4>Books</h4>
         <table class="books_table">
-        <%= form_with model: Book.new, url: {controller: 'books', action: 'show'} do |f| %>
           <tr>
             <th></th>
             <th>Title</th>
@@ -45,7 +44,6 @@
               </tr>
             <% end %>
           </tbody>
-        <% end %>
         </table>
     </div> 
      
