@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
+  
+  def get_profile_image(width, height)
+  end
   
   def new
     @book = Book.new
@@ -7,10 +11,6 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @books = @users
-    @post_images = @user.post_images
-  end
-  
-  def get_profile_image(width, height)
   end
   
   def about
