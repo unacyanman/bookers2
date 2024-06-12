@@ -1,41 +1,51 @@
-<h4>books/index</h4>
+<h4>books index</h4>
 <div class="container">
   <div class="row">
     
     <div class="col-md-4">
       <h4>User info</h4>
       <% if @user.profile_image.attached? %>
-        <%= image_tag @user.get_profile_image(100,100) %>
+        <%= image_tag @user.get_profile_image %>
       <% else %>
         <%= image_tag 'no_image', size: "100x100" %>
       <% end %>  
       
       <table class=user_table>
-        <tr><th>name</th><th><%= @user_name %></th></tr>
-        <tr><td>introduction</td><td>aa</td></tr>
+        <tr><th>name</th><th><%= @user.name %></th></tr>
+        <tr><td>introduction</td><td><%= @user.introduction %></td></tr>
       </table></br>
       <%= link_to 'Edit', {controller: 'users', action: 'edit', id: @user.id}, class: 'btn-brock btn-outline' %>
       
       <h4>New book</h4>
-      <%= form_with model:Book.new do |f| %>
+      <%= form_with model: @book, url: '/books', method: :post do |f| %>
         <h4>Title</h4>
         <%= f.text_field :title %>
       	
         <h4>Opinion</h4>
         <%= f.text_area :body %></br>
-      	<%= f.submit 'Create Book' %>
+      	<%= f.submit 'Create Book', {controller: 'books', action: 'show'} %>
       <% end %>
     </div>
     
     <div class="col-md-8">
       <h4>Books</h4>
-      <% @books.each do |book| %>
-
-        <p>タイトル</p>
-        <span><%= book.title %></span>
-        <span><%= book.body %></span>
-      <% end %>
-    </div>
-    
+        <table class="books_table">
+          <tr>
+            <th></th>
+            <th>Title</th>
+            <th>Option</th>
+          </tr>
+          <tbody>
+            <% @books.each do |book| %>
+              <tr>
+                <td><%= image_tag @user.get_profile_image %></td>
+                <td><%= book.title %></td>
+                <td><%= book.body %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+    </div> 
+     
   </div>
 </div>
