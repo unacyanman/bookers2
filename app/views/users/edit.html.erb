@@ -1,1 +1,24 @@
 <h4>users/edit</h4>
+
+<div class="container">
+  <div class="row">
+    <div class="mx-auto">
+      
+      <h4>User info</h4>
+      <%= form_with model: @user do |f| %>
+        <p>Name</p>
+        <%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"名前"%></br></br>
+        
+        <p>Image</p>
+        <%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: "image/*" %></br></br>
+        
+        <p>Introduction</p>
+        <%= f.text_field :introduction, autofocus: true, id:"", placeholder:""%></br></br>
+        
+        <%= f.submit "Update User" %></br>
+      <% end %>
+      
+    </div>
+  </div>
+  </br></br>
+</div>

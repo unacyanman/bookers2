@@ -10,14 +10,23 @@
     <tr><th>name</th><th><%= @user.name %></th></tr>
     <tr><td>introduction</td><td><%= @user.introduction %></td></tr>
   </table></br>
-  <%= link_to 'Edit', {controller: 'users', action: 'edit', id: @user.id}, class: 'btn-brock btn-outline' %>
+  
+  <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
+  
+  <div class="row">
+    <div class="btn-block edit_user" href="/users/edit">
+      <div class= data-icon="user-gear" role="img">
+        <path fill="currentColor"></path>
+      </div>
+    </div>
+  </div>
   
   <h4>New book</h4>
   <%= form_with model: @book, url: '/books', method: :post do |f| %>
-    <h4>Title</h4>
+    <p>Title</p>
     <%= f.text_field :title %>
   	
-    <h4>Opinion</h4>
+    <p>Opinion</p>
     <%= f.text_area :body %></br>
   	<%= f.submit 'Create Book', {controller: 'books', action: 'show'} %>
   <% end %>
