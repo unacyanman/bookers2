@@ -5,6 +5,7 @@
     <!-- 左側 -->
     <%= render 'books/common', books: @books %>
     
+    <!-- 右側 -->
     <div class="col-md-8">
       <h4>Books</h4>
         <table class="table table-striped">
@@ -17,10 +18,9 @@
             <tbody>
                 <tr>
                   <td><%= image_tag @user.get_profile_image %></td>
-                  <td><%= book.title %></td>
-                  <td><%= book.body %></td>
+                  <td><%= @book.title %></td>
+                  <td><%= @book.body %></td>
                 </tr>
-              <% end %>
             </tbody>
           </table>
         </table>

@@ -26,7 +26,16 @@ class BooksController < ApplicationController
   end
   
   def edit
+    @book = Book.find(params[:id])
   end
+  
+  def update
+    book = Book.find(params[:id])
+    book.update(list_params)
+    redirect_to books_show_path  
+  end
+
+  private
   
   def book_params
     params.require(:book).permit(:title, :body)
