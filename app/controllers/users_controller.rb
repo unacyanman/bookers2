@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
-    @books = @users
+    @books = @user.books
   end
   
   def about
@@ -36,8 +36,11 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.update(user_params)
-    redirect_to '/users/index'
+    if @user.update(user_params)
+      redirect_to '/users/index'
+    else
+      render 'edit'
+    end
   end
   
   private

@@ -32,7 +32,7 @@ class BooksController < ApplicationController
   def update
     book = Book.find(params[:id])
     book.update(list_params)
-    redirect_to books_show_path  
+    redirect_to book_path(book.id)
   end
 
   private
