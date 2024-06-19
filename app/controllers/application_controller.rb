@@ -2,11 +2,11 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def after_sign_in_path_for(resource)
-    users_index_path
+    user_path(resource)
   end
 
   def after_sign_out_path_for(resource)
-    homes_path_url
+    root_url
   end
 
   def get_profile_image(width, height)
