@@ -27,12 +27,12 @@
   </div>
   
   <h4>New book</h4>
-  <%= form_with model: @book, url: '/books', method: :post do |f| %>
+  <%= form_with model: Book.new, url: books_path, method: :post do |f| %>
     <p>Title</p>
     <%= f.text_field :title %>
   	
     <p>Opinion</p>
     <%= f.text_area :body %></br>
-  	<%= f.submit 'Create Book', {controller: 'books', action: 'show'} %>
+  	<%= f.submit 'Create Book' %>
   <% end %>
 </div>
