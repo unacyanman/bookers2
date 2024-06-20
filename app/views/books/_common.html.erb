@@ -14,14 +14,20 @@
     </table></br>
   </table>
   
-  <% if @user == current_user %>
-    <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
-  <% end %>
+  <div class="container">
+    <div class="row">
+      <% if @user == current_user %>
+        <%= link_to edit_user_path(@user), class: "btn btn-outline-secondary btn-block" do %>
+          <i class="fa-solid fa-user"></i>
+        <% end %>
+      <% end %>
+    </div>
   
-  <div class="row">
-    <div class="btn-block edit_user" href="/users/edit">
-      <div class= data-icon="user-gear" role="img">
-        <path fill="currentColor"></path>
+    <div class="row">
+      <div class="btn-block edit_user" href="/users/edit">
+        <div class= data-icon="user-gear" role="img">
+          <path fill="currentColor"></path>
+        </div>
       </div>
     </div>
   </div>
