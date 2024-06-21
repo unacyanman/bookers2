@@ -2,8 +2,8 @@
 <html>
   <main>
     <div class="text-center">
-      <h1>welcome to Bookers !!</h1>
-      <h2>In Bookers,</h2>
+      <h1>welcome to <i class="fa-solid fa-book"></i> Bookers !!</h1>
+      <h2>In <i class="fa-solid fa-book"></i> Bookers,</h2>
       <a>you can share and exchange your opinions , inpressions , and emotions<br>
       about various books!</a>
     </div>
@@ -12,8 +12,10 @@
       <% if user_signed_in? %>
         <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
       <% else %>
-        <li><%= link_to "Log in", new_user_session_path %></li>
-        <li><%= link_to "Sign up", new_user_registration_path %></li>
+        <div class="row">
+          <%= link_to  'Log in', new_user_session_path, class: "btn btn-outline-secondary btn-block" %>
+          <%= link_to  'Sign up', new_user_registration_path, class: "btn btn-outline-secondary btn-block" %>
+        </div>
       <% end %>
     </div>
   </main>
