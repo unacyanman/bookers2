@@ -20,6 +20,7 @@ class ApplicationController < ActionController::Base
   protected
   
   def logged_in?
+    flash[:notice] = "aaaa"
   end
 
   def configure_permitted_parameters
