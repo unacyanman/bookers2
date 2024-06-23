@@ -7,25 +7,22 @@
     
     <!-- 右側 -->
     <div class="col-md-8">
-      <h4>Books</h4>
-        <table class="table table-striped">
-          <tr>
-            <th></th>
-            <th>Title</th>
-            <th>Option</th>
-          </tr>
+      <h4>Book detail</h4>
+        <table class="table">
           <tbody>
-              <tr>
-                <td><%= image_tag @user.get_profile_image %></td>
-                <td><%=link_to @book.title, book_path(@book) %></td>
-                <td><%= @book.body %></td>
-                
-                <td><%= link_to 'Edit', edit_book_path(@book), class: "btn btn-outline-secondary btn-block" %></td>
-                <td><% if @book.user == current_user %>
-                  <%= link_to "Destroy", book_path(@book), method: :delete %>
-                <% end %></td>
-                
-              </tr>
+            <tr>
+              <td><%= image_tag @user.get_profile_image %><br>
+              <%=link_to @user.name, user_path(@user.id) %></td>
+              
+              <td><%=link_to @book.title, book_path(@book) %></td>
+              
+              <td><%= @book.body %></td>
+              
+              <td><%= link_to 'Edit', edit_book_path(@book), class: "btn btn-outline-secondary btn-block" %></td>
+              <td><% if @book.user == current_user %>
+                <%= link_to "Destroy", book_path(@book), method: :delete %>
+              <% end %></td>
+            </tr>
           </tbody>
         </table>
     </div> 
