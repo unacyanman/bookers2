@@ -1,0 +1,26 @@
+<h4>books/edit</h4>
+
+<div class="container">
+  <div class="row">
+    <div class="mx-auto">
+      
+      <h4>Editing Book</h4>
+      <%= form_with model: @book do |f| %>
+      
+        <p>Title</p>
+        <%= f.text_field :title, autofocus: true, id:"book_title", placeholder:""%></br></br>
+        
+        <p>Opinion</p>
+        <%= f.text_field :body, autofocus: true, id:"book_body", placeholder:""%></br></br>
+        
+        <%= f.submit "Update Book" %></br>
+      <% end %>
+      
+      <%=link_to "Show", book_path(@book) %>
+      <%=link_to "Back", books_path(@book) %>
+      
+      
+    </div>
+  </div>
+  </br></br>
+</div>
