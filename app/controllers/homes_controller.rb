@@ -2,7 +2,7 @@ class HomesController < ApplicationController
   
   def top
     if current_user
-      redirect_to users_show_path
+      redirect_to user_path(current_user)
     end
   end
   

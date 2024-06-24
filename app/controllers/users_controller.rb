@@ -2,6 +2,11 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
   
   def get_profile_image(width, height)
+    if current_user.profile_image.attached?
+      url = current_user.profile_image.variant(resize: "#{width}x#{height}").url
+      return url
+    else
+    end
   end
   
   def new
@@ -29,6 +34,7 @@ class UsersController < ApplicationController
   end
   
   def edit
+    @user = User.find(params[:id])
     @user = current_user
     @user_name = current_user.name
   end
@@ -36,6 +42,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
+      flash[:notice] = "You have updated user successfully."
       redirect_to user_path(@user.id)
     else
       render 'edit'
