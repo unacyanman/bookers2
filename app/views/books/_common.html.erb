@@ -1,4 +1,5 @@
 <!-- 左側 -->
+<div class="col-md-3">
 
   <h4>User info</h4>
   <% if @user.profile_image.attached? %>
@@ -28,12 +29,14 @@
     </div>
   </div>
 
-<h4>New book</h4>
-<%= form_with model: Book.new, url: books_path, method: :post do |f| %>
-  <p>Title</p>
-  <%= f.text_field :title %>
-	
-  <p>Opinion</p>
-  <%= f.text_area :body %></br>
-	<%= f.submit 'Create Book' %>
-<% end %>
+  <h4>New book</h4>
+  <%= form_with model: Book.new, url: books_path, method: :post do |f| %>
+    <p>Title</p>
+    <%= f.text_field :title %>
+  	
+    <p>Opinion</p>
+    <%= f.text_area :body %></br>
+  	<%= f.submit 'Create Book' %>
+  <% end %>
+
+</div>

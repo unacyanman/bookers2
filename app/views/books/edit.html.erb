@@ -3,7 +3,7 @@
 <div class="container">
 
 <% if @book.errors.any? %>
-  <%= @book.errors.count %>件のエラーが発生しました
+  <%= @book.errors.count %>errors prohibited this obj from being saved:
   <ul>
     <% @book.errors.full_messages.each do |message| %>
       <li><%= message %></li>
@@ -11,29 +11,26 @@
   </ul>
 <% end %>
 
-
-  <div class="col-md-3">
-    <div class="row">
-      <div class="mx-auto">
+  <div class="row">
+    <div class="mx-auto">
+      
+      <h4>Editing Book</h4>
+      <%= form_with model: @book do |f| %>
+      
+        <p>Title</p>
+        <%= f.text_field :title, autofocus: true, id:"book_title", placeholder:""%></br></br>
         
-        <h4>Editing Book</h4>
-        <%= form_with model: @book do |f| %>
+        <p>Opinion</p>
+        <%= f.text_field :body, autofocus: true, id:"book_body", placeholder:""%></br></br>
         
-          <p>Title</p>
-          <%= f.text_field :title, autofocus: true, id:"book_title", placeholder:""%></br></br>
-          
-          <p>Opinion</p>
-          <%= f.text_field :body, autofocus: true, id:"book_body", placeholder:""%></br></br>
-          
-          <%= f.submit "Update Book" %></br>
-        <% end %>
-        
-        <%=link_to "Show", book_path(@book) %>
-        <%=link_to "Back", books_path(@books) %>
-        
-        
-      </div>
+        <%= f.submit "Update Book" %></br>
+      <% end %>
+      
+      <%=link_to "Show", book_path(@book) %>
+      <%=link_to "Back", books_path(@books) %>
+      
+      
     </div>
-    </br></br>
   </div>
+  </br></br>
 </div>
