@@ -6,7 +6,7 @@
     <%= render 'books/common', books: @books %>
     
     <!-- 右側 -->
-    <div class="col-md-8">
+    <div class="col-md-8 offset-md-1">
       <h4>Book detail</h4>
         <table class="table">
           <tbody>
@@ -18,10 +18,11 @@
               
               <td><%= @book.body %></td>
               
-              <td><%= link_to 'Edit', edit_book_path(@book), class: "btn btn-outline-secondary btn-block" %></td>
-              <td><% if @book.user == current_user %>
-                <%= link_to "Destroy", book_path(@book), method: :delete %>
-              <% end %></td>
+              <% if current_user == @book.user %>
+                <td><%= link_to 'Edit', edit_book_path(@book), class: "btn btn-outline-secondary btn-block" %></td>
+                <td><%= link_to "Destroy", book_path(@book), method: :delete, class: "btn btn-danger" %></td>
+              <% end %>
+
             </tr>
           </tbody>
         </table>

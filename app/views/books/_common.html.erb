@@ -1,6 +1,5 @@
 <!-- 左側 -->
 
-<div class="col-md-4">
   <h4>User info</h4>
   <% if @user.profile_image.attached? %>
     <%= image_tag @user.get_profile_image %>
@@ -15,31 +14,26 @@
     </table></br>
   </table>
   
-  <div class="container">
-    <div class="row">
-      <% if @user == current_user %>
-        <%= link_to edit_user_path(current_user), class: "btn btn-outline-secondary btn-block" do %>
-          <i class="fa-solid fa-user"></i>
-        <% end %>
-      <% end %>
-    </div>
-  
-    <div class="row">
-      <div class="btn-block edit_user" href="/users/edit">
-        <div class= data-icon="user-gear" role="img">
-          <path fill="currentColor"></path>
-        </div>
+  <div class="row">
+      <%= link_to edit_user_path(current_user), class: "btn btn-outline-secondary btn-block" do %>
+        <i class="fa-solid fa-user-gear"></i>
+    <% end %>
+  </div>
+
+  <div class="row">
+    <div class="btn-block edit_user" href="/users/edit">
+      <div class= data-icon="user-gear" role="img">
+        <path fill="currentColor"></path>
       </div>
     </div>
   </div>
-  
-  <h4>New book</h4>
-  <%= form_with model: Book.new, url: books_path, method: :post do |f| %>
-    <p>Title</p>
-    <%= f.text_field :title %>
-  	
-    <p>Opinion</p>
-    <%= f.text_area :body %></br>
-  	<%= f.submit 'Create Book' %>
-  <% end %>
-</div>
+
+<h4>New book</h4>
+<%= form_with model: Book.new, url: books_path, method: :post do |f| %>
+  <p>Title</p>
+  <%= f.text_field :title %>
+	
+  <p>Opinion</p>
+  <%= f.text_area :body %></br>
+	<%= f.submit 'Create Book' %>
+<% end %>
